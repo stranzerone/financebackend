@@ -9,10 +9,14 @@ app.use(bodyParser.json());
 app.use(cors())
 // Connect to MongoDB
 require("dotenv").config({ path: ".env" });
-const Connections = async  (URL) => {
+
+
+const DATABASE = process.env.DATABASE;
+
+const Connections = async  () => {
     
     try{
-    await  mongoose.connect("mongodb+srv://SahilMulani:Sahil2165@cluster0.yqlks9v.mongodb.net/Finance").then(
+    await  mongoose.connect(DATABASE).then(
         console.log("database connected")
     )
 
